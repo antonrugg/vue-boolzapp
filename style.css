@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+
+:root {
+  --top-header-bg: rgb(0 150 136);
+  --main-bg: rgb(218 219 212);
+  --top-header-app: rgb(234 234 234);
+  --message-input-bg: rgb(243 238 234);
+  --message-baloon-bg: rgb(213 249 186);
+}
+
 body{
     font-family: 'Montserrat', sans-serif;
 }
+
