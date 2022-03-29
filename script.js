@@ -7,11 +7,15 @@ const app = new Vue({
 
     data: {
         contacts,
-        
+        activeContact: null,
+        index: 0
 
     },
     methods: {
-  
+        setActiveContact: function (i) {
+            this.activeContact = i;
+        },
+
 
     }
 });

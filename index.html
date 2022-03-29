@@ -43,19 +43,53 @@
                         </div>
                     </div>
                     <div id="new-messages-alert-section">
-
+                        <a href="#nowhere"><i class="fa-solid fa-bell-slash"></i></a>
+                        <div id="alert-text">
+                            <div id="alert-top-text"><span>Ricevi notifiche di nuovi messaggi</span></div>
+                            <div id="alert-bottom-text"><span><a href="#nowhere">Attiva notifiche desktop</a></span></div>
+                        </div>
                     </div>
                     <div id="search-bar-section">
-
+                        <form>
+                            <label for="q"><a href="#nowhere"><i class="fa-solid fa-magnifying-glass"></i></a></label>
+                            <input type="search" id="mySearch" name="q" placeholder="Cerca o inizia una nuova chat">
+                        </form>
                     </div>
                     <div id="main-left-section">
+
+
+
+                        <div v-if="contacts.length > 0">
+                            <div v-for="(contact, index) in contacts">
+                                <div class="flex-row">
+                                    <div>
+                                        <img class="user-image" :src="`img-bolzapp/avatar${contacts[index].avatar}.jpg`"/>
+                                    </div>
+                                    <div class="flex-column">
+                                        <span class="user-name">{{contact.name}}</span>
+                                        <span class="user-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
+                                    </div>
+                                    <div class="message-time-div">
+                                        <span class="message-time">{{contact.messages[contact.messages.length-1].date}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
 
                     </div>
                 </section>
                 <section id="right-section">
                     <div id="header-right-section">
-                        <div id="user-right-div">
-                            
+                        <div  class="flex-row align-items-center" id="user-right-div">
+                            <div>
+                                <img class="user-image" :src="`img-bolzapp/avatar${contacts[index].avatar}.jpg`" />
+                            </div>
+                            <div class="flex-column">
+                           <span class="user-name"> {{contacts[index].name}} </span>
+                           <span class="message-time">Ultimo accesso oggi alle 12.00</span>
+                        </div>
                         </div>
                         <div id="icon-top-right-div">
                             <a href="#nowhere"><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -67,7 +101,15 @@
                     
                     </div>
                     <div id="write-input-section">
-
+                        <div id="icon-bottom-right-div">
+                            <a href="#nowhere"><i class="fa-regular fa-face-smile"></i></a>
+                        </div>
+                        <form>
+                            <input type="text" id="myMessage" name="q" placeholder="Scrivi un messaggio">
+                        </form>
+                        <div id="icon-bottom-right-div">
+                            <a href="#nowhere"><i class="fa-solid fa-microphone"></i></a>
+                        </div>
                     </div>
                 </section>
             </main>
