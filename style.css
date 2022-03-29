@@ -11,9 +11,93 @@
   --top-header-app: rgb(234 234 234);
   --message-input-bg: rgb(243 238 234);
   --message-baloon-bg: rgb(213 249 186);
+  --alert-color-bg: rgb(142 218 252);
 }
 
 body{
     font-family: 'Montserrat', sans-serif;
+    background-color: var(--main-bg);
 }
+
+#boolzapp{
+    position: relative;
+}
+
+#bg-header{
+    background-color: var(--top-header-bg);
+    height: 10vh;
+    width: 100%;
+    position: absolute;
+}
+
+main#main-app{
+    background-color: var(--top-header-app);
+    width: 1200px;
+    height: 700px;
+    margin: 30px auto;
+    display: flex;
+}
+
+#header-left-section{
+    border-bottom: 1px solid rgb(220 220 220);;
+    height: 8%;
+    background-color: var(--top-header-app);
+}
+
+#new-messages-alert-section{
+    height: 10%;
+    background-color: var(--alert-color-bg);
+}
+
+#search-bar-section{
+    height: 6%;
+    border-bottom: 1px solid rgb(220 220 220);
+}
+
+#left-section{
+    border-right: 1px solid rgb(220 220 220);;
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#main-left-section{
+    overflow-y: scroll;
+    height: 76%;
+}
+
+
+
+#header-right-section{
+    border-bottom: 1px solid rgb(220 220 220);
+    height: 8%;
+    background-color: rgb(--top-header-app);
+}
+
+
+
+#right-section{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#main-right-section{
+    height: 82%;
+    background-image: url('./img-bolzapp/mine.jpg');
+    overflow-y: scroll;
+}
+
+#write-input-section{
+    height: 10%;
+    width: 100%;
+    background-color: var(--message-input-bg);
+}
+
+
+
+
 

@@ -161,3 +161,14 @@ const contacts = [
         ],
     }
 ]
+
+
+// Milestone 1
+// Replica della grafica con la possibilità di avere messaggi scritti dall’utente(verdi) e dall’interlocutore(bianco) assegnando due classi CSS diverse
+// Visualizzazione dinamica della lista contatti: tramite la direttiva v -for, visualizzare nome e immagine di ogni contatto
+// QUINDI solo la parte a sinistra sarà dinamica(per mostrare la lista contatti), mentre a destra ci sarà HTML statico, uguale a quello presentato nel layout
+// Daje!: fuoco:
+// Consigli utili:
+// Si possono trascurare le scrollbar verticali, sia nel pannello dei messaggi, che nella lista dei contatti
+// I pulsanti e le icone possono non funzionare(a parte l’invio del messaggio)
+// La struttura dell’array dei contatti è la seguente:
