@@ -268,7 +268,7 @@ input[type=search]{
 }
 
 
-.my-message{
+.sent{
     background-color: var(--message-baloon-bg);
     border-radius: 7px;
     margin-right: 3rem;
@@ -281,7 +281,7 @@ input[type=search]{
     
 }
 
-.others-message{
+.received{
     background-color: white;
     border-radius: 7px;
     margin-left: 3rem;
