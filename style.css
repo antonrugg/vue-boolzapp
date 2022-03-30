@@ -15,6 +15,7 @@
   --icon-color-bg: rgb(177 177 177);
 }
 
+
 body{
     font-family: 'Montserrat', sans-serif;
     background-color: var(--main-bg);
@@ -103,6 +104,11 @@ main#main-app{
     height: 82%;
     background-image: url('./img-bolzapp/mine.jpg');
     overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem 1rem;
+    gap: 0.5rem;
+    flex-grow: 1;
 }
 
 #write-input-section{
@@ -223,7 +229,7 @@ input[type=search]{
 
 .flex-row{
     display: flex;
-    padding: 0.8rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     position: relative;
     border-bottom: 1px solid rgb(220 220 220);
     
@@ -264,6 +270,44 @@ input[type=search]{
 .user.active{
     background-color: lightgrey;
 }
+
+
+.my-message{
+    background-color: var(--message-baloon-bg);
+    border-radius: 7px;
+    margin-right: 3rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    min-width: 200px;
+    max-width: 40%;
+    padding-left: 0.5rem;
+    padding-right: 6rem;
+    align-self: end;
+    
+}
+
+.others-message{
+    background-color: white;
+    border-radius: 7px;
+    margin-left: 3rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    min-width: 200px;
+    max-width: 40%;
+    align-self: start;
+}
+
+.message-text{
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 0.5rem;
+    padding-right: 6rem;
+    display: flex;
+    align-items: center;
+    max-width: 40%;
+}
+
+
 
 
 

@@ -65,7 +65,7 @@
                                 :class="(index === activeContact) ? 'user active' : ''">
                                 <div class="flex-row">
                                     <div>
-                                        <img class="user-image" :src="imgURLUser(index)"/>
+                                        <img class="user-image" :src="imgURLUser(index)" :alt="contact.name"/>
                                     </div>
                                     <div class="flex-column">
                                         <span class="user-name">{{contact.name}}</span>
@@ -99,9 +99,23 @@
                             <a href="#nowhere"><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
                     </div>
-                    <div id="main-right-section">
-                    
+                    <div v-else id="header-right-section">
+
                     </div>
+
+
+                    <div id="main-right-section" class="clearfix">
+                        <div class="my-message">
+                            <span class="message-text">test</span>
+                        </div>
+                        <div class="others-message">
+                            <span class="message-text">testlungolungotestlungolungo</span>
+                        </div> 
+                       
+                    </div>
+
+
+
                     <div id="write-input-section">
                         <div id="icon-bottom-right-div">
                             <a href="#nowhere"><i class="fa-regular fa-face-smile"></i></a>
