@@ -60,10 +60,12 @@
 
 
                         <div v-if="contacts.length > 0">
-                            <div v-for="(contact, index) in contacts">
+                            <div v-for="(contact, index) in contacts"
+                                @click="setActiveContact(index)"
+                                :class="(index === activeContact) ? 'user active' : ''">
                                 <div class="flex-row">
                                     <div>
-                                        <img class="user-image" :src="`img-bolzapp/avatar${contacts[index].avatar}.jpg`"/>
+                                        <img class="user-image" :src="imgURLUser(index)"/>
                                     </div>
                                     <div class="flex-column">
                                         <span class="user-name">{{contact.name}}</span>
