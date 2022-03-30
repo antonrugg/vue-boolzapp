@@ -31,8 +31,25 @@ const app = new Vue({
                         status: 'sent'
                     }
                 )
+                this.okMessage(i)
+               
             }
-            this.newMessage = ''
+            this.newMessage = '';
+            
+        },
+
+        okMessage(i) {
+            this.contacts[i].messages.push(
+                {
+                    date: new Date(),
+                    message: 'Ok',
+                    status: 'received'
+                }
+            )
+            setTimeout(okMessage, 1000);
+
         }
+
+        
     }
 });
