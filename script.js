@@ -10,7 +10,7 @@ const app = new Vue({
         contacts,
         index: 0,
         activeContact: null,
-        searchQuery: null,
+        newMessage: ''
     },
     methods: {
         setActiveContact: function (index) {
@@ -21,11 +21,18 @@ const app = new Vue({
             return `img-bolzapp/avatar${contacts[index].avatar}.jpg`;
         },
 
-       
+        pushNewMessage(i) {
+            if ((this.newMessage.trim()).length > 0) {
 
-        
-        
-
-        
+                this.contacts[i].messages.push(
+                    {
+                        date: new Date(),
+                        message: this.newMessage,
+                        status: 'sent'
+                    }
+                )
+            }
+            this.newMessage = ''
+        }
     }
 });

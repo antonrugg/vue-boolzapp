@@ -72,7 +72,7 @@
                                         <span class="user-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
                                     </div>
                                     <div class="message-time-div">
-                                        <span class="message-time">{{contact.messages[contact.messages.length-1].date.split(" ")[1].slice(0, 5)}}</span>
+                                        <!-- <span class="message-time">{{contact.messages[contact.messages.length-1].date.split(" ")[1].slice(0, 5)}}</span> -->
                                     </div>
                                 </div>
                             </div>
@@ -108,7 +108,7 @@
                             <div class="my-message" v-for="message in contacts[activeContact].messages" :class="message.status">
                                 <span class="message-text">{{ message.message }}</span>
                                 <span class="message-date message-time">
-                                    {{ message.date.slice(11, 16) }}
+                                    <!-- {{ message.date.slice(11, 16) }} -->
                                 </span>
                             </div>
                         </div>
@@ -120,9 +120,9 @@
                         <div id="icon-bottom-right-div">
                             <a href="#nowhere"><i class="fa-regular fa-face-smile"></i></a>
                         </div>
-                        <form>
-                            <input type="text" id="myMessage" name="q" placeholder="Scrivi un messaggio">
-                        </form>
+                        
+                            <input type="text"  @keyUp.enter="pushNewMessage(activeContact)" v-model="newMessage" id="myMessage" placeholder="Scrivi un messaggio">
+                        
                         <div id="icon-bottom-right-div">
                             <a href="#nowhere"><i class="fa-solid fa-microphone"></i></a>
                         </div>
