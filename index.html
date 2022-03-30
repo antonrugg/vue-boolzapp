@@ -83,13 +83,13 @@
                     </div>
                 </section>
                 <section id="right-section">
-                    <div id="header-right-section">
+                    <div id="header-right-section"  v-if="activeContact !== null">
                         <div  class="flex-row align-items-center" id="user-right-div">
                             <div>
-                                <img class="user-image" :src="`img-bolzapp/avatar${contacts[index].avatar}.jpg`" />
+                                <img class="user-image" :src="`img-bolzapp/avatar${contacts[activeContact].avatar}.jpg`" />
                             </div>
                             <div class="flex-column">
-                           <span class="user-name"> {{contacts[index].name}} </span>
+                           <span class="user-name"> {{contacts[activeContact].name}} </span>
                            <span class="message-time">Ultimo accesso oggi alle 12.00</span>
                         </div>
                         </div>

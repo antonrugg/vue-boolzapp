@@ -10,12 +10,10 @@ const app = new Vue({
         contacts,
         index: 0,
         activeContact: null
-        
-
     },
     methods: {
-        setActiveContact: function (i) {
-            this.activeContact = i;
+        setActiveContact: function (index) {
+            this.activeContact = index;
         },
 
         imgURLUser: function (index) {
