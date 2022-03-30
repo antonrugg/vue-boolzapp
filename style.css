@@ -275,11 +275,9 @@ input[type=search]{
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
     min-width: 200px;
-    max-width: 40%;
-    padding-left: 0.5rem;
-    padding-right: 6rem;
     align-self: end;
     position: relative;
+    flex-grow: 1;
     
 }
 
@@ -290,25 +288,27 @@ input[type=search]{
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
     min-width: 200px;
-    max-width: 40%;
     align-self: start;
     position: relative;
+    flex-grow: 1;
 }
 
 .message-text{
     font-size: 12px;
     font-weight: 500;
     padding-left: 0.5rem;
-    padding-right: 6rem;
     display: flex;
     align-items: center;
-    max-width: 40%;
+    padding-right: 3rem;
+    
+    
 }
 
 .message-date{
     position: absolute;
     bottom: 2px;
     right: 5px;
+    font-size: 7px;
 }
 
 #main-right-div{

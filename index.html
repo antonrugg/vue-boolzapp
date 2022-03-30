@@ -106,13 +106,13 @@
                     <div id="main-right-section">
                         <div id="main-right-div" v-if="activeContact !== null">
                             <div class="my-message" v-for="message in contacts[activeContact].messages" :class="message.status">
-                                <span class="message-text">test</span>
+                                <span class="message-text">{{ message.message }}</span>
                                 <span class="message-date message-time">
                                     {{ message.date.slice(11, 16) }}
                                 </span>
                             </div>
                             <div class="others-message" v-for="message in contacts[activeContact].messages" :class="message.status">
-                                <span class="message-text">test</span>
+                                <span class="message-text">{{ message.message }}</span>
                                 <span class="message-date message-time">
                                     {{ message.date.slice(11, 16) }}
                                 </span>
