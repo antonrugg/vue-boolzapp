@@ -9,7 +9,8 @@ const app = new Vue({
     data: {
         contacts,
         index: 0,
-        activeContact: null
+        activeContact: null,
+        searchQuery: null,
     },
     methods: {
         setActiveContact: function (index) {
@@ -18,7 +19,12 @@ const app = new Vue({
 
         imgURLUser: function (index) {
             return `img-bolzapp/avatar${contacts[index].avatar}.jpg`;
-        }
+        },
+
+       
+
+        
+        
 
         
     }
