@@ -10,7 +10,9 @@ const app = new Vue({
         contacts,
         index: 0,
         activeContact: null,
-        newMessage: ''
+        newMessage: '',
+        
+        
     },
     methods: {
         setActiveContact: function (index) {
@@ -21,7 +23,7 @@ const app = new Vue({
             return `img-bolzapp/avatar${contacts[index].avatar}.jpg`;
         },
 
-        pushNewMessage(i) {
+        pushNewMessage: function(i) {
             if ((this.newMessage.trim()).length > 0) {
 
                 this.contacts[i].messages.push(
@@ -38,7 +40,7 @@ const app = new Vue({
             
         },
 
-        okMessage(i) {
+        okMessage: function(i) {
             this.contacts[i].messages.push(
                 {
                     date: new Date(),
@@ -46,9 +48,16 @@ const app = new Vue({
                     status: 'received'
                 }
             )
-            setTimeout(okMessage, 1000);
+            setTimeout(this.okMessage, 1000);
 
-        }
+        },
+
+        // getLastDate: function (contact) {
+        //     this.lastDate = contact.messages[contact.messages.length - 1].date;
+            
+        // },
+
+
 
         
     }
