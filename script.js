@@ -48,7 +48,7 @@ const app = new Vue({
                     status: 'received'
                 }
             )
-            setTimeout(this.okMessage, 1000);
+            setTimeout(okMessage, 1000);
 
         },
 
