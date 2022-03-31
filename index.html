@@ -114,13 +114,22 @@
                     <!-- chat -->
                     <div id="main-right-section">
                         <div id="main-right-div" v-if="activeContact !== null">
+
                             <div class="my-message" v-for="message in contacts[activeContact].messages" :class="message.status">
-                                <span class="message-text" style="white-space: pre-line">{{ message.message }}</span>
+                                <span class="message-text" style="white-space: pre-line">
+                                    {{ message.message }}
+                                </span>
+                                <a @click="toggle" href="#nowhere"><i class="fa-solid fa-angle-down"></i></a>
+                                <div v-if="active" class="pop-up-message">
+                                    <p>Message info</p>
+                                    <p>Delete Message</p>
+
+                                </div>
                                 <span class="message-date message-time">
-                                    
-                                    {{ message.date.slice(10, 16) }}
+                                     {{ message.date.slice(10, 16) }}
                                 </span>
                             </div>
+
                         </div>
                     </div>    
                     <!-- chat / -->

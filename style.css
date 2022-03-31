@@ -319,6 +319,35 @@ input[type=search]{
     flex-grow: 1;
 }
 
+.fa-solid.fa-angle-down{
+    position: absolute;
+    top: 6px;
+    right: 0px;
+    cursor: pointer;
+}
+
+.pop-up-message{
+    position: absolute;
+    top: 19px;
+    right: 19px;
+    width: 150px;
+    height: 100px;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+    z-index: 2;
+}
+
+.pop-up-message p{
+    font-size: 14px;
+    font-weight: 500;
+}
+
 
 
 

@@ -11,7 +11,8 @@ const app = new Vue({
         index: 0,
         activeContact: null,
         newMessage: undefined,
-        search: undefined
+        search: undefined,
+        active: false
         
         
         
@@ -61,7 +62,7 @@ const app = new Vue({
         getTimeString: function () {
             const newDate = new Date();
             const thisYear = newDate.getUTCMonth() + '/' + newDate.getUTCDate() + '/' + newDate.getUTCFullYear();
-            const getTime = newDate.getHours() + ':' + '0' + newDate.getMinutes();
+            const getTime = newDate.getHours() + ':' +  newDate.getMinutes();
             return thisYear + ' ' + getTime;
         },
 
@@ -78,6 +79,10 @@ const app = new Vue({
                 }
             }
 
+        },
+
+        toggle() {
+            this.active = !this.active
         }
         
 
