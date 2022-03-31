@@ -11,6 +11,7 @@ const app = new Vue({
         index: 0,
         activeContact: null,
         newMessage: undefined,
+        search: undefined
         
         
         
@@ -28,16 +29,16 @@ const app = new Vue({
         pushNewMessage: function (index) {
             
             if ((this.newMessage.trim()).length > 0) {
-                
+               
                 this.contacts[index].messages.push(
                     {
-                        date: new Date(),
+                        date: this.getTimeString(),
                         message: this.newMessage,
                         status: 'sent'
                     }
                 )
-                this.okMessage(index)
-               
+        
+                setTimeout(this.okMessage, 1000, this.activeContact);
             }
             this.newMessage = '';
             
@@ -48,19 +49,36 @@ const app = new Vue({
         okMessage: function (index) {
             this.contacts[index].messages.push(
                 {
-                    date: new Date(),
+                    date: this.getTimeString(),
                     message: 'Ok',
                     status: 'received'
                 }
             )
-            setTimeout(this.okMessage, 1000, activeContact);
+            
 
         },
 
-        // getLastDate: function (contact) {
-        //     this.lastDate = contact.messages[contact.messages.length - 1].date;
-            
-        // },
+        getTimeString: function () {
+            const newDate = new Date();
+            const thisYear = newDate.getUTCMonth() + '/' + newDate.getUTCDate() + '/' + newDate.getUTCFullYear();
+            const getTime = newDate.getHours() + ':' + '0' + newDate.getMinutes();
+            return thisYear + ' ' + getTime;
+        },
+
+        // '10/01/2020 15:30:55'
+
+
+        searchContact: function () {
+            for (let i = 0; i < this.contacts.length; i++){
+                if (this.contacts[i].name.includes(this.search)) {
+                    this.contacts[i].visible = true;
+                }
+                else {
+                    this.contacts[i].visible = false;
+                }
+            }
+
+        }
         
 
 
@@ -68,3 +86,4 @@ const app = new Vue({
     }
         }
     );
+
