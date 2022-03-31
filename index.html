@@ -119,7 +119,7 @@
                                 <span class="message-text" style="white-space: pre-line">
                                     {{ message.message }}
                                 </span>
-                                <a @click="toggle" href="#nowhere"><i class="fa-solid fa-angle-down"></i></a>
+                                <a @click="toggle" href="#nowhere"><i  :class="(active === false) ? 'fa-solid fa-angle-down' : 'fa-solid fa-angle-up'"></i></a>
                                 <div v-if="active" class="pop-up-message">
                                     <p>Message info</p>
                                     <p>Delete Message</p>

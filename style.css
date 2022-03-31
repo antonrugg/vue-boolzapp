@@ -326,13 +326,20 @@ input[type=search]{
     cursor: pointer;
 }
 
+.fa-solid.fa-angle-up{
+    position: absolute;
+    top: 6px;
+    right: 0px;
+    cursor: pointer;
+}
+
 .pop-up-message{
     position: absolute;
     top: 19px;
     right: 19px;
     width: 150px;
     height: 100px;
-    background-color: antiquewhite;
+    background-color: var(--alert-color-bg);
     border-radius: 5px;
     display: flex;
     flex-direction: column;
