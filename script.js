@@ -10,7 +10,8 @@ const app = new Vue({
         contacts,
         index: 0,
         activeContact: null,
-        newMessage: '',
+        newMessage: undefined,
+        
         
         
     },
@@ -23,32 +24,36 @@ const app = new Vue({
             return `img-bolzapp/avatar${contacts[index].avatar}.jpg`;
         },
 
-        pushNewMessage: function(i) {
+        //invio nuovo messaggio
+        pushNewMessage: function (index) {
+            
             if ((this.newMessage.trim()).length > 0) {
-
-                this.contacts[i].messages.push(
+                
+                this.contacts[index].messages.push(
                     {
                         date: new Date(),
                         message: this.newMessage,
                         status: 'sent'
                     }
                 )
-                this.okMessage(i)
+                this.okMessage(index)
                
             }
             this.newMessage = '';
             
         },
 
-        okMessage: function(i) {
-            this.contacts[i].messages.push(
+        // fine invio nuovo messaggio
+
+        okMessage: function (index) {
+            this.contacts[index].messages.push(
                 {
                     date: new Date(),
                     message: 'Ok',
                     status: 'received'
                 }
             )
-            setTimeout(okMessage, 1000);
+            setTimeout(this.okMessage, 1000, activeContact);
 
         },
 
@@ -56,9 +61,10 @@ const app = new Vue({
         //     this.lastDate = contact.messages[contact.messages.length - 1].date;
             
         // },
-
+        
 
 
         
     }
-});
+        }
+    );
