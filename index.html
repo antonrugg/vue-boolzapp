@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,11 +9,12 @@
 
     <!-- Vue JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    
+
     <!-- Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800;900&display=swap"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS  -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,6 +28,7 @@
     <link rel="stylesheet" href="./media-queries.css">
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
     <div id="boolzapp">
         <div id="bg-header">
@@ -37,7 +40,7 @@
                             <span class="user-name">Sofia</span>
                         </div>
                         <div id="icon-top-left-div">
-                           <a href="#nowhere"><i class="fa-solid fa-circle-notch"></i></a>
+                            <a href="#nowhere"><i class="fa-solid fa-circle-notch"></i></a>
                             <a href="#nowhere"><i class="fa-solid fa-message"></i></a>
                             <a href="#nowhere"><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
@@ -46,58 +49,64 @@
                         <a href="#nowhere"><i class="fa-solid fa-bell-slash"></i></a>
                         <div id="alert-text">
                             <div id="alert-top-text"><span>Ricevi notifiche di nuovi messaggi</span></div>
-                            <div id="alert-bottom-text"><span><a href="#nowhere">Attiva notifiche desktop</a></span></div>
+                            <div id="alert-bottom-text"><span><a href="#nowhere">Attiva notifiche desktop</a></span>
+                            </div>
                         </div>
                     </div>
+
                     <div id="search-bar-section">
-                        
-                            <label for="q"><a href="#nowhere"><i class="fa-solid fa-magnifying-glass"></i></a></label>
-                            <input type="search" 
-                             @keyUp.enter="searchContact()"
-                             v-model="search"
-                             id="mySearch" name="q" placeholder="Cerca o inizia una nuova chat">
-                        
+                        <label for="q"><a href="#nowhere"><i class="fa-solid fa-magnifying-glass"></i></a></label>
+                        <input type="search" @keyUp.enter="searchContact()" v-model="search" id="mySearch" name="q"
+                            placeholder="Cerca o inizia una nuova chat">
                     </div>
+
+
+
+
                     <div id="main-left-section">
-
-
-
                         <div v-if="contacts.length > 0">
-                            <div v-for="(contact, index) in contacts"
-                                @click="setActiveContact(index)"
-                                :class="(index === activeContact) ? 'user active' : ''"
-                                 v-if="contact.visible === true">
+                            <div v-for="(contact, index) in contacts" @click="setActiveContact(index)"
+                                :class="(index === activeContact) ? 'user active' : ''" v-if="contact.visible === true">
                                 <div class="flex-row">
                                     <div>
-                                        <img class="user-image" :src="imgURLUser(index)" :alt="contact.name"/>
+                                        <img class="user-image" :src="imgURLUser(index)" :alt="contact.name" />
                                     </div>
+
                                     <div class="flex-column">
                                         <span class="user-name">{{contact.name}}</span>
-                                        
-                                        <span class="user-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
+                                        <span
+                                            class="user-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
                                     </div>
+
                                     <div class="message-time-div">
-                                       
-                                        <span class="message-time">{{contact.messages[contact.messages.length-1].date.split(' ')[1].slice(0, 5)}}</span>
+                                        <span
+                                            class="message-time">{{contact.messages[contact.messages.length-1].date.split('
+                                            ')[1].slice(0, 5)}}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-
-
                     </div>
                 </section>
+
                 <section id="right-section">
+<<<<<<< HEAD
                     <div class="header-right-section"  v-if="activeContact !== null">
                         <div  class="flex-row align-items-center" id="user-right-div">
                             <div>
                                 <img class="user-image" :src="`img-bolzapp/avatar${contacts[activeContact].avatar}.jpg`" alt="user image"/>
+=======
+                    <div id="header-right-section" v-if="activeContact !== null">
+                        <div class="flex-row align-items-center" id="user-right-div">
+                            <div>
+                                <img class="user-image"
+                                    :src="`img-bolzapp/avatar${contacts[activeContact].avatar}.jpg`" />
+>>>>>>> 2da6eda4043b882a50e1e39dc7485a70a67d68f5
                             </div>
                             <div class="flex-column">
-                           <span class="user-name"> {{contacts[activeContact].name}} </span>
-                           <span class="message-time">Ultimo accesso oggi alle 12.00</span>
-                        </div>
+                                <span class="user-name"> {{contacts[activeContact].name}} </span>
+                                <span class="message-time">Ultimo accesso oggi alle 12.00</span>
+                            </div>
                         </div>
                         <div id="icon-top-right-div">
                             <a href="#nowhere"><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -105,8 +114,12 @@
                             <a href="#nowhere"><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div v-else class="header-right-section">
 
+=======
+                    <div v-else id="header-right-section">
+>>>>>>> 2da6eda4043b882a50e1e39dc7485a70a67d68f5
                     </div>
 
 
@@ -115,23 +128,25 @@
                     <div id="main-right-section">
                         <div id="main-right-div" v-if="activeContact !== null">
 
-                            <div class="my-message" v-for="(message, index) in contacts[activeContact].messages" :class="message.status">
+                            <div class="my-message" v-for="(message, index) in contacts[activeContact].messages"
+                                :class="message.status">
                                 <span class="message-text" style="white-space: pre-line">
                                     {{ message.message }}
                                 </span>
-                                <a @click="toggle" href="#nowhere"><i  :class="(active === false) ? 'fa-solid fa-angle-down' : 'fa-solid fa-angle-up'"></i></a>
+                                <a @click="toggle" href="#nowhere"><i
+                                        :class="(active === false) ? 'fa-solid fa-angle-down' : 'fa-solid fa-angle-up'"></i></a>
                                 <div v-if="active" class="pop-up-message">
                                     <p>Message info</p>
                                     <p @click="deleteMessage(index)">Delete Message</p>
                                 </div>
 
                                 <span class="message-date message-time">
-                                     {{ message.date.slice(10, 16) }}
+                                    {{ message.date.slice(10, 16) }}
                                 </span>
                             </div>
 
                         </div>
-                    </div>    
+                    </div>
                     <!-- chat / -->
 
 
@@ -140,20 +155,29 @@
                         <div class="icon-bottom-right-div">
                             <a href="#nowhere"><i class="fa-regular fa-face-smile"></i></a>
                         </div>
+<<<<<<< HEAD
                         
                             <input type="text"  @keyUp.enter="pushNewMessage(activeContact)" v-model="newMessage" id="myMessage" placeholder="Scrivi un messaggio">
                         
                         <div class="icon-bottom-right-div">
+=======
+
+                        <input type="text" @keyUp.enter="pushNewMessage(activeContact)" v-model="newMessage"
+                            id="myMessage" placeholder="Scrivi un messaggio">
+
+                        <div id="icon-bottom-right-div">
+>>>>>>> 2da6eda4043b882a50e1e39dc7485a70a67d68f5
                             <a href="#nowhere"><i class="fa-solid fa-microphone"></i></a>
                         </div>
                     </div>
                 </section>
             </main>
-    
-    
+
+
         </div>
     </div>
     <script src="./data.js"></script>
     <script src="./script.js"></script>
 </body>
+
 </html>

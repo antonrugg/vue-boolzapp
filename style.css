@@ -356,7 +356,11 @@ input[type=search]{
     cursor: pointer;
 }
 
+<<<<<<< HEAD
 .pop-up-message p:hover{
+=======
+.pop-up-message p:hover {
+>>>>>>> 2da6eda4043b882a50e1e39dc7485a70a67d68f5
     text-decoration: underline;
 }
 
