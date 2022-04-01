@@ -80,8 +80,7 @@
                                     <div class="message-time-div">
 
                                         <span
-                                            class="message-time">{{contact.messages[contact.messages.length-1].date.split('
-                                            ')[1].slice(0, 5)}}</span>
+                                            class="message-time">{{contact.messages[contact.messages.length-1].date.split(' ')[1].slice(0, 5)}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +91,7 @@
                     </div>
                 </section>
                 <section id="right-section">
-                    <div id="header-right-section" v-if="activeContact !== null">
+                    <div class="header-right-section" v-if="activeContact !== null">
                         <div class="flex-row align-items-center" id="user-right-div">
                             <div>
                                 <img class="user-image"
@@ -109,7 +108,7 @@
                             <a href="#nowhere"><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
                     </div>
-                    <div v-else id="header-right-section">
+                    <div v-else class="header-right-section">
 
                     </div>
 
@@ -128,7 +127,7 @@
                                         :class="(active === false) ? 'fa-solid fa-angle-down' : 'fa-solid fa-angle-up'"></i></a>
                                 <div v-if="active" class="pop-up-message">
                                     <p>Message info</p>
-                                    <p>Delete Message</p>
+                                    <p @click="deleteMessage(index)">Delete Message</p>
                                 </div>
 
                                 <span class="message-date message-time">
@@ -143,14 +142,14 @@
 
 
                     <div id="write-input-section">
-                        <div id="icon-bottom-right-div">
+                        <div class="icon-bottom-right-div">
                             <a href="#nowhere"><i class="fa-regular fa-face-smile"></i></a>
                         </div>
 
                         <input type="text" @keyUp.enter="pushNewMessage(activeContact)" v-model="newMessage"
                             id="myMessage" placeholder="Scrivi un messaggio">
 
-                        <div id="icon-bottom-right-div">
+                        <div class="icon-bottom-right-div">
                             <a href="#nowhere"><i class="fa-solid fa-microphone"></i></a>
                         </div>
                     </div>

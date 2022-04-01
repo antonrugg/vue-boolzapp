@@ -360,6 +360,13 @@ input[type=search]{
     text-decoration: underline;
 }
 
+.fa-regular.fa-face-smile{
+    margin-left: 0.4rem;
+}
+
+.fa-solid.fa-microphone{
+    margin-left: 0.4rem;
+}
 
 
 
