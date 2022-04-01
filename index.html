@@ -53,17 +53,17 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="search-bar-section">
+
                         <label for="q"><a href="#nowhere"><i class="fa-solid fa-magnifying-glass"></i></a></label>
                         <input type="search" @keyUp.enter="searchContact()" v-model="search" id="mySearch" name="q"
                             placeholder="Cerca o inizia una nuova chat">
+
                     </div>
-
-
-
-
                     <div id="main-left-section">
+
+
+
                         <div v-if="contacts.length > 0">
                             <div v-for="(contact, index) in contacts" @click="setActiveContact(index)"
                                 :class="(index === activeContact) ? 'user active' : ''" v-if="contact.visible === true">
@@ -71,14 +71,14 @@
                                     <div>
                                         <img class="user-image" :src="imgURLUser(index)" :alt="contact.name" />
                                     </div>
-
                                     <div class="flex-column">
                                         <span class="user-name">{{contact.name}}</span>
+
                                         <span
                                             class="user-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
                                     </div>
-
                                     <div class="message-time-div">
+
                                         <span
                                             class="message-time">{{contact.messages[contact.messages.length-1].date.split('
                                             ')[1].slice(0, 5)}}</span>
@@ -86,14 +86,17 @@
                                 </div>
                             </div>
                         </div>
+
+
+
                     </div>
                 </section>
-
                 <section id="right-section">
-                    <div class="header-right-section"  v-if="activeContact !== null">
-                        <div  class="flex-row align-items-center" id="user-right-div">
+                    <div id="header-right-section" v-if="activeContact !== null">
+                        <div class="flex-row align-items-center" id="user-right-div">
                             <div>
-                                <img class="user-image" :src="`img-bolzapp/avatar${contacts[activeContact].avatar}.jpg`" alt="user image"/>
+                                <img class="user-image"
+                                    :src="`img-bolzapp/avatar${contacts[activeContact].avatar}.jpg`" />
                             </div>
                             <div class="flex-column">
                                 <span class="user-name"> {{contacts[activeContact].name}} </span>
@@ -106,7 +109,7 @@
                             <a href="#nowhere"><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
                     </div>
-                    <div v-else class="header-right-section">
+                    <div v-else id="header-right-section">
 
                     </div>
 
@@ -125,7 +128,7 @@
                                         :class="(active === false) ? 'fa-solid fa-angle-down' : 'fa-solid fa-angle-up'"></i></a>
                                 <div v-if="active" class="pop-up-message">
                                     <p>Message info</p>
-                                    <p @click="deleteMessage(index)">Delete Message</p>
+                                    <p>Delete Message</p>
                                 </div>
 
                                 <span class="message-date message-time">
@@ -140,13 +143,14 @@
 
 
                     <div id="write-input-section">
-                        <div class="icon-bottom-right-div">
+                        <div id="icon-bottom-right-div">
                             <a href="#nowhere"><i class="fa-regular fa-face-smile"></i></a>
                         </div>
-                        
-                            <input type="text"  @keyUp.enter="pushNewMessage(activeContact)" v-model="newMessage" id="myMessage" placeholder="Scrivi un messaggio">
-                        
-                        <div class="icon-bottom-right-div">
+
+                        <input type="text" @keyUp.enter="pushNewMessage(activeContact)" v-model="newMessage"
+                            id="myMessage" placeholder="Scrivi un messaggio">
+
+                        <div id="icon-bottom-right-div">
                             <a href="#nowhere"><i class="fa-solid fa-microphone"></i></a>
                         </div>
                     </div>

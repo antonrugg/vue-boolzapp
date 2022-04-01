@@ -13,41 +13,40 @@ const app = new Vue({
         newMessage: undefined,
         search: undefined,
         active: false
-        
-        
-        
+
+
+
     },
     methods: {
-        // select active contact when clicked
         setActiveContact: function (index) {
             this.activeContact = index;
         },
-        //dynamic avatar image for users
+
         imgURLUser: function (index) {
             return `img-bolzapp/avatar${contacts[index].avatar}.jpg`;
         },
 
-        //to send a new message
+        //invio nuovo messaggio
         pushNewMessage: function (index) {
-            
-            if ((this.newMessage.trim()).length > 0) { 
-               
-                this.contacts[index].messages.push( //push a new message object inside messages array
+
+            if ((this.newMessage.trim()).length > 0) {
+
+                this.contacts[index].messages.push(
                     {
                         date: this.getTimeString(),
                         message: this.newMessage,
                         status: 'sent'
                     }
                 )
-        
-                setTimeout(this.okMessage, 1000, this.activeContact); //invoke function that send an ok-message after 1 sec from new message
+
+                setTimeout(this.okMessage, 1000, this.activeContact);
             }
-            this.newMessage = ''; //reset input text
-            
+            this.newMessage = '';
+
         },
 
-    
-        //push a new message saying ok
+        // fine invio nuovo messaggio
+
         okMessage: function (index) {
             this.contacts[index].messages.push(
                 {
@@ -56,24 +55,22 @@ const app = new Vue({
                     status: 'received'
                 }
             )
-            
+
 
         },
 
-
-        //using newDate.etc to find right hour and minutes
         getTimeString: function () {
             const newDate = new Date();
             const thisYear = newDate.getUTCMonth() + '/' + newDate.getUTCDate() + '/' + newDate.getUTCFullYear();
-            const getTime = newDate.getHours() + ':' +  newDate.getMinutes();
+            const getTime = newDate.getHours() + ':' + newDate.getMinutes();
             return thisYear + ' ' + getTime;
         },
 
-        // '10/01/2020 15:30:55' <----- date format base
+        // '10/01/2020 15:30:55'
 
-        //function to search contact, using includes on search value (v-model), set visible
+
         searchContact: function () {
-            for (let i = 0; i < this.contacts.length; i++){
+            for (let i = 0; i < this.contacts.length; i++) {
                 if (this.contacts[i].name.includes(this.search)) {
                     this.contacts[i].visible = true;
                 }
@@ -84,22 +81,14 @@ const app = new Vue({
 
         },
 
-        //open and close pop-up when clicking arrow-down arrow-up
-        //(something is wrong about index and message check v-for)
         toggle() {
             this.active = !this.active
-        },
-
-        //function to delete a message
-        deleteMessage: function (index) {
-            contacts[this.activeContact].messages.splice(index, 1);
-               
         }
-        
-        
 
-        
+
+
+
     }
-        }
-    );
+}
+);
 
