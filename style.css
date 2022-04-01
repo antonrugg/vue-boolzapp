@@ -82,7 +82,7 @@ main#main-app{
 
 
 
-#header-right-section{
+.header-right-section{
     border-bottom: 1px solid rgb(220 220 220);
     height: 8%;
     background-color: rgb(--top-header-app);
@@ -353,6 +353,11 @@ input[type=search]{
 .pop-up-message p{
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
+}
+
+.pop-up-message p:hover{
+    text-decoration: underline;
 }
 
 
