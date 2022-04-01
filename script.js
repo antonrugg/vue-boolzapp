@@ -18,20 +18,21 @@ const app = new Vue({
         
     },
     methods: {
+        // select active contact when clicked
         setActiveContact: function (index) {
             this.activeContact = index;
         },
-
+        //dynamic avatar image for users
         imgURLUser: function (index) {
             return `img-bolzapp/avatar${contacts[index].avatar}.jpg`;
         },
 
-        //invio nuovo messaggio
+        //to send a new message
         pushNewMessage: function (index) {
             
-            if ((this.newMessage.trim()).length > 0) {
+            if ((this.newMessage.trim()).length > 0) { 
                
-                this.contacts[index].messages.push(
+                this.contacts[index].messages.push( //push a new message object inside messages array
                     {
                         date: this.getTimeString(),
                         message: this.newMessage,
@@ -39,14 +40,14 @@ const app = new Vue({
                     }
                 )
         
-                setTimeout(this.okMessage, 1000, this.activeContact);
+                setTimeout(this.okMessage, 1000, this.activeContact); //invoke function that send an ok-message after 1 sec from new message
             }
-            this.newMessage = '';
+            this.newMessage = ''; //reset input text
             
         },
 
-        // fine invio nuovo messaggio
-
+    
+        //push a new message saying ok
         okMessage: function (index) {
             this.contacts[index].messages.push(
                 {
@@ -59,6 +60,8 @@ const app = new Vue({
 
         },
 
+
+        //using newDate.etc to find right hour and minutes
         getTimeString: function () {
             const newDate = new Date();
             const thisYear = newDate.getUTCMonth() + '/' + newDate.getUTCDate() + '/' + newDate.getUTCFullYear();
@@ -66,9 +69,9 @@ const app = new Vue({
             return thisYear + ' ' + getTime;
         },
 
-        // '10/01/2020 15:30:55'
+        // '10/01/2020 15:30:55' <----- date format base
 
-
+        //function to search contact, using includes on search value (v-model), set visible
         searchContact: function () {
             for (let i = 0; i < this.contacts.length; i++){
                 if (this.contacts[i].name.includes(this.search)) {
@@ -81,8 +84,16 @@ const app = new Vue({
 
         },
 
+        //open and close pop-up when clicking arrow-down arrow-up
+        //(something is wrong about index and message check v-for)
         toggle() {
             this.active = !this.active
+        },
+
+        //function to delete a message
+        deleteMessage: function (index) {
+            contacts[this.activeContact].messages.splice(index, 1);
+               
         }
         
 
