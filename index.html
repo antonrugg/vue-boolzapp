@@ -90,18 +90,10 @@
                 </section>
 
                 <section id="right-section">
-<<<<<<< HEAD
                     <div class="header-right-section"  v-if="activeContact !== null">
                         <div  class="flex-row align-items-center" id="user-right-div">
                             <div>
                                 <img class="user-image" :src="`img-bolzapp/avatar${contacts[activeContact].avatar}.jpg`" alt="user image"/>
-=======
-                    <div id="header-right-section" v-if="activeContact !== null">
-                        <div class="flex-row align-items-center" id="user-right-div">
-                            <div>
-                                <img class="user-image"
-                                    :src="`img-bolzapp/avatar${contacts[activeContact].avatar}.jpg`" />
->>>>>>> 2da6eda4043b882a50e1e39dc7485a70a67d68f5
                             </div>
                             <div class="flex-column">
                                 <span class="user-name"> {{contacts[activeContact].name}} </span>
@@ -114,12 +106,8 @@
                             <a href="#nowhere"><i class="fa-solid fa-ellipsis-vertical"></i></a>
                         </div>
                     </div>
-<<<<<<< HEAD
                     <div v-else class="header-right-section">
 
-=======
-                    <div v-else id="header-right-section">
->>>>>>> 2da6eda4043b882a50e1e39dc7485a70a67d68f5
                     </div>
 
 
@@ -155,18 +143,10 @@
                         <div class="icon-bottom-right-div">
                             <a href="#nowhere"><i class="fa-regular fa-face-smile"></i></a>
                         </div>
-<<<<<<< HEAD
                         
                             <input type="text"  @keyUp.enter="pushNewMessage(activeContact)" v-model="newMessage" id="myMessage" placeholder="Scrivi un messaggio">
                         
                         <div class="icon-bottom-right-div">
-=======
-
-                        <input type="text" @keyUp.enter="pushNewMessage(activeContact)" v-model="newMessage"
-                            id="myMessage" placeholder="Scrivi un messaggio">
-
-                        <div id="icon-bottom-right-div">
->>>>>>> 2da6eda4043b882a50e1e39dc7485a70a67d68f5
                             <a href="#nowhere"><i class="fa-solid fa-microphone"></i></a>
                         </div>
                     </div>
