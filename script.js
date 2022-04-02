@@ -12,7 +12,8 @@ const app = new Vue({
         activeContact: null,
         newMessage: undefined,
         search: undefined,
-        active: false
+        active: false,
+        
 
 
 
@@ -22,7 +23,7 @@ const app = new Vue({
         setActiveContact: function (index) {
             this.activeContact = index;
         },
-        
+
         //dynamic avatar image for users
         imgURLUser: function (index) {
             return `img-bolzapp/avatar${contacts[index].avatar}.jpg`;

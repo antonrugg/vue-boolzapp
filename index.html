@@ -65,7 +65,7 @@
 
 
                         <div v-if="contacts.length > 0">
-                            <div v-for="(contact, index) in contacts" @click="setActiveContact(index)"
+                            <div v-for="(contact, index) in contacts" @click="setActiveContact(index)" v-if="contact.messages.length > 0"
                                 :class="(index === activeContact) ? 'user active' : ''" v-if="contact.visible === true">
                                 <div class="flex-row">
                                     <div>
@@ -74,7 +74,7 @@
                                     <div class="flex-column">
                                         <span class="user-name">{{contact.name}}</span>
 
-                                        <span
+                                        <span 
                                             class="user-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
                                     </div>
                                     <div class="message-time-div">
