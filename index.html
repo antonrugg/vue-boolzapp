@@ -56,7 +56,7 @@
                     <div id="search-bar-section">
 
                         <label for="q"><a href="#nowhere"><i class="fa-solid fa-magnifying-glass"></i></a></label>
-                        <input type="search" @keyUp.enter="searchContact()" v-model="search" id="mySearch" name="q"
+                        <input type="text" @keyUp="searchContact" v-model="searched" id="mySearch" name="q"
                             placeholder="Cerca o inizia una nuova chat">
 
                     </div>
@@ -65,7 +65,7 @@
 
 
                         <div v-if="contacts.length > 0">
-                            <div v-for="(contact, index) in contacts" @click="setActiveContact(index)" v-if="contact.messages.length > 0"
+                            <div v-for="(contact, index) in contacts" @click="setActiveContact(index)"
                                 :class="(index === activeContact) ? 'user active' : ''" v-if="contact.visible === true">
                                 <div class="flex-row">
                                     <div>
@@ -75,12 +75,14 @@
                                         <span class="user-name">{{contact.name}}</span>
 
                                         <span 
-                                            class="user-last-message">{{contact.messages[contact.messages.length-1].message}}</span>
+                                            class="user-last-message">
+                                            {{contact.messages[contact.messages.length-1].message}}</span>
                                     </div>
                                     <div class="message-time-div">
 
                                         <span
-                                            class="message-time">{{contact.messages[contact.messages.length-1].date.split(' ')[1].slice(0, 5)}}</span>
+                                            class="message-time">
+                                            {{contact.messages[contact.messages.length-1].date.split(' ')[1].slice(0, 5)}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -117,17 +119,19 @@
                     <!-- chat -->
                     <div id="main-right-section">
                         <div id="main-right-div" v-if="activeContact !== null">
-
-                            <div class="my-message" v-for="(message, index) in contacts[activeContact].messages"
-                                :class="message.status">
+                            
+                            <div class="my-message" v-for="(message, setter) in contacts[activeContact].messages"
+                                :class="message.status"  @mouseleave="dropUp(setter)">
                                 <span class="message-text" style="white-space: pre-line">
                                     {{ message.message }}
                                 </span>
-                                <a @click="toggle" href="#nowhere"><i
-                                        :class="(active === false) ? 'fa-solid fa-angle-down' : 'fa-solid fa-angle-up'"></i></a>
-                                <div v-if="active" class="pop-up-message">
+                                <a @click="dropDown(setter)" href="#nowhere">
+                                   <i :class="(active === false) ? 'fa-solid fa-angle-down' : 'fa-solid fa-angle-up'">
+                                   </i>
+                                </a>
+                                <div v-if="message.active === true" class="pop-up-message">
                                     <p>Message info</p>
-                                    <p @click="deleteMessage(index)">Delete Message</p>
+                                    <p @click="deleteMessage(setter)">Delete Message</p>
                                 </div>
 
                                 <span class="message-date message-time">

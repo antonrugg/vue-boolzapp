@@ -11,7 +11,7 @@ const app = new Vue({
         index: 0,
         activeContact: null,
         newMessage: undefined,
-        search: undefined,
+        searched: '',
         active: false,
         
 
@@ -38,7 +38,8 @@ const app = new Vue({
                     {
                         date: this.getTimeString(),
                         message: this.newMessage,
-                        status: 'sent'
+                        status: 'sent',
+                        active: false
                     }
                 )
 
@@ -55,7 +56,8 @@ const app = new Vue({
                 {
                     date: this.getTimeString(),
                     message: 'Ok',
-                    status: 'received'
+                    status: 'received',
+                    active: false
                 }
             )
 
@@ -75,8 +77,10 @@ const app = new Vue({
         
         //function to search contact, using includes on search value (v-model), set visible
         searchContact: function () {
+            let search = this.searched.toLowerCase();
             for (let i = 0; i < this.contacts.length; i++) {
-                if (this.contacts[i].name.includes(this.search)) {
+                let userName = this.contacts[i].name.toLowerCase();
+                if (userName.includes(search)) {
                     this.contacts[i].visible = true;
                 }
                 else {
@@ -89,8 +93,13 @@ const app = new Vue({
 
         //open and close pop-up when clicking arrow-down arrow-up
         //(something is wrong about index and message check v-for)
-        toggle() {
-            this.active = !this.active
+       
+
+        dropDown(setter) {
+             this.contacts[this.activeContact].messages[setter].active = true;
+        },
+        dropUp(setter) {
+             this.contacts[this.activeContact].messages[setter].active = false;
         },
 
 
